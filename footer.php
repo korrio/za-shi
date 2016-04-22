@@ -102,7 +102,14 @@
     // Pretty simple huh?
    
     jQuery(document).ready(function() {
-        jQuery("#main-menu").append('<li id="menu-item-39" style="list-style: none;" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-39"><a title="ห้องเรียนออนไลน์" href="http://128.199.113.225/server.php?id=<?=get_current_user_id()?>" target="_blank">ห้องเรียนออนไลน์</a></li>');
+        <?php 
+            if(is_user_logged_in()) {
+        ?>
+            jQuery("#main-menu").append('<li id="menu-item-39" style="list-style: none;" class="menu-item menu-item-type-post_type menu-item-object-page nav-item menu-item-39"><a title="ห้องเรียนออนไลน์" href="https://e-nihongo.com/student/server.php?id=<?=get_current_user_id()?>" target="_blank">ห้องเรียนออนไลน์</a></li>');
+        
+        <?php
+            }
+        ?>
         jQuery("img.lazy").lazyload();
         jQuery(".fancybox").fancybox({
                         padding : 0

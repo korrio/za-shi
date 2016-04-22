@@ -125,7 +125,7 @@
 <header id="not-home">
     <div class="row">
             <div class="col-lg-4" >
-                <a class="page-scroll" href="#home"><img style="margin-top: 24px;" class="lazy" src="http://e-nihongo.com/wp-content/themes/za-shi/img/logo-shadow.png"></a>
+                <a class="page-scroll" href="#home"><img style="margin-top: 24px;" class="lazy" src="<?php echo get_bloginfo('template_url'); ?>/img/logo-shadow.png"></a>
             </div>
         </div>
 </header>
