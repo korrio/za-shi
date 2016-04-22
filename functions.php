@@ -62,3 +62,40 @@ require get_template_directory() . '/inc/bootstrap-wp-navwalker.php';
 * Load WooCommerce functions.
 */
 require get_template_directory() . '/inc/woocommerce.php';
+
+global $woothemes_sensei;
+remove_action( 'sensei_before_main_content', array( $woothemes_sensei->frontend, 'sensei_output_content_wrapper' ), 10 );
+remove_action( 'sensei_after_main_content', array( $woothemes_sensei->frontend, 'sensei_output_content_wrapper_end' ), 10 );
+
+add_action('sensei_before_main_content', 'my_theme_wrapper_start', 10);
+add_action('sensei_after_main_content', 'my_theme_wrapper_end', 10);
+
+function my_theme_wrapper_start() {
+  echo '<div id="container"><div id="content" role="main">';
+}
+
+function my_theme_wrapper_end() {
+  echo '</div><!-- #content -->
+	</div><!-- #container -->';
+	get_sidebar();
+}
+
+add_action( 'after_setup_theme', 'declare_sensei_support' );
+function declare_sensei_support() {
+    add_theme_support( 'sensei' );
+}
+
+/**
+ * Get the functions created for Sensei
+ */
+//require_once( get_template_directory() . "/inc/functions-options.php");
+
+/**
+ * Get the functions created for Sensei
+ */
+//require_once( get_template_directory() . "/inc/functions-sensei.php");
+
+// add_action( 'after_setup_theme', 'declare_sensei_support' );
+// function declare_sensei_support() {
+//     add_theme_support( 'sensei' );
+// }
